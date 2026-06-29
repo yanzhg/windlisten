@@ -1,0 +1,19 @@
+site_name: WindListen 科技新闻
+site_description: 每日自动采集互联网科技新闻
+site_url: https://windlisten.xxx.pages.dev
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+  language: zh
+
+nav:
+  - 首页: index.md
+  - 今日新闻: posts/
+
+plugins:
+  - search
