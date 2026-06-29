@@ -1,6 +1,6 @@
 site_name: WindListen 科技新闻
 site_description: 每日自动采集互联网科技新闻
-site_url: https://windlisten.xxx.pages.dev
+site_url: https://windlisten.pages.dev
 theme:
   name: material
   features:
