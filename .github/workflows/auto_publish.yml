@@ -1,17 +1,17 @@
 name: 每日自动采集科技新闻
 on:
   schedule:
-    - cron: '0 2 * * *'  # 北京时间 10:00
+    - cron: '0 2 * * *'
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -24,6 +24,6 @@ jobs:
         run: python scripts/fetch_news.py
 
       - name: Commit and push
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: Auto update news
