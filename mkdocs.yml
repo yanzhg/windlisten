@@ -30,9 +30,8 @@ theme:
 
 plugins:
   - search:
-      lang: zh
       separator: '[\s\-\.，。、]'
-  - macros
+      lang: zh
 
 nav:
   - 首页: index.md
