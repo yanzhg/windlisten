@@ -12,7 +12,7 @@ theme:
 
 nav:
   - 首页: index.md
-  - 今日新闻: posts/index.md
+  - 今日新闻: posts/
 
 plugins:
   - search
