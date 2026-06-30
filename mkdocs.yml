@@ -32,7 +32,6 @@ plugins:
       lang: zh
       separator: '[\s\-\.，。、]'
 
-# 导航适配新闻结构
 nav:
   - 首页: index.md
   - 今日新闻: posts/index.md
@@ -42,9 +41,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/yanzhg
 
-# 无自定义css，删掉assets/style.css（windlisten没有这个文件，避免构建警告）
-# extra_css:
-#   - assets/style.css
+# 启用自定义样式，路径对应 assets/style.css
+extra_css:
+  - assets/style.css
 
 # 公式渲染配置完整保留
 markdown_extensions:
