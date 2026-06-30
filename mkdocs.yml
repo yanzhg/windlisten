@@ -19,22 +19,27 @@ theme:
         icon: material/weather-sunny
         name: 切换至浅色模式
   features:
-    - navigation.expand
+    - navigation.expand       # 侧边分组默认展开
     - navigation.top
     - content.code.copy
     - content.code.annotate
     - search.suggest
     - search.highlight
+    - toc.follow
   sidebar_width: 25rem
 
 plugins:
   - search:
       lang: zh
       separator: '[\s\-\.，。、]'
+  - awesome-pages
 
+# 核心导航写法：不会生成 /auto 404，自动读取posts下所有md作为子菜单
 nav:
   - 首页: index.md
-  - 今日新闻: posts/index.md
+  - 今日新闻:
+      - 新闻汇总首页: posts/index.md
+      - auto: posts
 
 extra:
   social:
@@ -44,13 +49,10 @@ extra:
 extra_css:
   - assets/style.css
 
-# 公式渲染配置
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
-# 关键修改：移除 polyfill.io 劫持域名，只保留本地mathjax配置和mathjax官方CDN
 extra_javascript:
   - javascripts/mathjax-config.js
-  # 删除这一行危险劫持链接：https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
