@@ -8,12 +8,13 @@
 ⏰ 更新时间：每天上午 10 点
 
 
+
 下面是所有新闻链接，按日期倒序排列：
 
 {% set all_news = [] %}
 {% for file in pages %}
   {% if file.url.startswith("posts/") and file.url != "posts/" %}
-    {% set all_news = all_news.append(file) %}
+    {% set _ = all_news.append(file) %}
   {% endif %}
 {% endfor %}
 
