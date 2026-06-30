@@ -35,9 +35,9 @@ for name, url in RSS_SOURCES:
                     "source": name,
                     "time": published.strftime("%Y-%m-%d %H:%M")
                 })
-            except:
+            except Exception:
                 continue
-    except:
+    except Exception:
         continue
 
 # 生成今日新闻
@@ -46,9 +46,7 @@ if news_list:
     filename = f"{date_str}_tech_news.md"
     filepath = os.path.join(OUT_DIR, filename)
 
-    # 关键修复：with 整体缩进在 if 内部
     with open(filepath, "w", encoding="utf-8") as f:
-        # FrontMatter 给插件读取标题、日期
         f.write(f"""---
 title: {date_str} 科技新闻汇总
 date: {date_str}
