@@ -34,7 +34,7 @@ plugins:
       separator: '[\s\-\.，。、]'
   - awesome-pages
 
-# 修正导航：只写目录名posts，插件自动读取.posts配置生成子菜单
+# 标准目录导航写法，插件自动读取posts内所有md
 nav:
   - 首页: index.md
   - 今日新闻: posts
