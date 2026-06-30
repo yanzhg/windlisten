@@ -7,17 +7,13 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.expand
-    - navigation.instant
     - toc.integrate
     - search.suggest
     - search.highlight
 
 nav:
   - 首页: index.md
-  - 今日新闻:
-      - 新闻汇总页: posts/index.md
-      - 全部新闻: auto
+  - 今日新闻: posts/index.md
 
 plugins:
   - search
-  - awesome-pages

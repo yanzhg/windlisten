@@ -2,4 +2,3 @@ mkdocs
 mkdocs-material
 feedparser
 python-dateutil
-mkdocs-awesome-pages-plugin
