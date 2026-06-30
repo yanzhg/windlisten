@@ -2,7 +2,7 @@ import feedparser
 import datetime
 import os
 
-# 新闻源
+# 新闻源列表
 RSS_SOURCES = [
     ("36氪", "https://36kr.com/feed"),
     ("InfoQ", "https://www.infoq.cn/feed"),
@@ -10,16 +10,17 @@ RSS_SOURCES = [
     ("钛媒体", "https://www.tmtpost.com/feed"),
 ]
 
-# 输出目录
+# 输出文件夹
 OUT_DIR = "docs/posts"
 os.makedirs(OUT_DIR, exist_ok=True)
 
-# 只抓 24 小时内新闻
+# 24小时时间过滤
 now = datetime.datetime.now(datetime.timezone.utc)
 cutoff = now - datetime.timedelta(hours=24)
 
 news_list = []
 
+# 遍历所有RSS抓取新闻
 for name, url in RSS_SOURCES:
     try:
         feed = feedparser.parse(url)
@@ -35,34 +36,41 @@ for name, url in RSS_SOURCES:
                     "source": name,
                     "time": published.strftime("%Y-%m-%d %H:%M")
                 })
-            except:
+            except Exception:
                 continue
-    except:
+    except Exception:
         continue
 
-# 生成今日新闻
+# 判断是否有新闻，统一缩进层级
 if news_list:
     date_str = now.strftime("%Y-%m-%d")
     filename = f"{date_str}_tech_news.md"
     filepath = os.path.join(OUT_DIR, filename)
 
+    # 全部写入逻辑缩进在if内部
     with open(filepath, "w", encoding="utf-8") as f:
-        f.write(f"""---
+        content_head = f"""---
 title: {date_str} 科技新闻汇总
 date: {date_str}
 ---
 
-""")
-        f.write(f"# {date_str} 科技新闻汇总\n\n")
-        f.write(f"📅 自动采集于：{now.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-        f.write("---\n\n")
+# {date_str} 科技新闻汇总
+📅 自动采集于：{now.strftime('%Y-%m-%d %H:%M:%S')}
+
+---
+"""
+        f.write(content_head)
         for news in news_list:
-            f.write(f"## {news['title']}\n")
-            f.write(f"- 来源：{news['source']}\n")
-            f.write(f"- 时间：{news['time']}\n")
-            f.write(f"- 链接：[{news['link']}]({news['link']})\n\n")
-            f.write(f"{news['summary']}\n\n")
-            f.write("---\n\n")
-    print(f"✅ 生成新闻：{filepath}")
+            block = f"""## {news['title']}
+- 来源：{news['source']}
+- 时间：{news['time']}
+- 链接：[{news['link']}]({news['link']})
+
+{news['summary']}
+
+---
+"""
+            f.write(block)
+    print(f"✅ 生成新闻文件：{filepath}")
 else:
-    print("ℹ️ 今日无新新闻")
+    print("ℹ️ 过去24小时无新新闻")
