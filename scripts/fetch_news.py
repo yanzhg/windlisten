@@ -46,24 +46,25 @@ if news_list:
     filename = f"{date_str}_tech_news.md"
     filepath = os.path.join(OUT_DIR, filename)
 
-with open(filepath, "w", encoding="utf-8") as f:
-    # FrontMatter 给插件读取标题、日期
-    f.write(f"""---
+    # 关键修复：with 整体缩进在 if 内部
+    with open(filepath, "w", encoding="utf-8") as f:
+        # FrontMatter 给插件读取标题、日期
+        f.write(f"""---
 title: {date_str} 科技新闻汇总
 date: {date_str}
 ---
 
 """)
-    f.write(f"# {date_str} 科技新闻汇总\n\n")
-    f.write(f"📅 自动采集于：{now.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-    f.write("---\n\n")
-    for news in news_list:
-        f.write(f"## {news['title']}\n")
-        f.write(f"- 来源：{news['source']}\n")
-        f.write(f"- 时间：{news['time']}\n")
-        f.write(f"- 链接：[{news['link']}]({news['link']})\n\n")
-        f.write(f"{news['summary']}\n\n")
+        f.write(f"# {date_str} 科技新闻汇总\n\n")
+        f.write(f"📅 自动采集于：{now.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
         f.write("---\n\n")
+        for news in news_list:
+            f.write(f"## {news['title']}\n")
+            f.write(f"- 来源：{news['source']}\n")
+            f.write(f"- 时间：{news['time']}\n")
+            f.write(f"- 链接：[{news['link']}]({news['link']})\n\n")
+            f.write(f"{news['summary']}\n\n")
+            f.write("---\n\n")
     print(f"✅ 生成新闻：{filepath}")
 else:
     print("ℹ️ 今日无新新闻")
