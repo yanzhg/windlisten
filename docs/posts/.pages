@@ -1,3 +1,0 @@
-# 自动读取当前目录所有md，按title倒序展示
-sort: title
-order: desc

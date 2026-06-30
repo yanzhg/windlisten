@@ -28,16 +28,16 @@ theme:
     - toc.follow
   sidebar_width: 25rem
 
+# 仅保留搜索，删除awesome-pages
 plugins:
   - search:
       lang: zh
-      separator: '[\s\-\.，。、]'
-  - awesome-pages
+      separator: '[\s\-\.，。、]
 
-# 标准目录导航写法，插件自动读取posts内所有md
+# 固定静态导航，不会空白
 nav:
   - 首页: index.md
-  - 今日新闻: posts
+  - 今日新闻: posts/index.md
 
 extra:
   social:
