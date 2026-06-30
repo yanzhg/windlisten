@@ -19,7 +19,7 @@ theme:
         icon: material/weather-sunny
         name: 切换至浅色模式
   features:
-    - navigation.expand       # 侧边分组默认展开
+    - navigation.expand
     - navigation.top
     - content.code.copy
     - content.code.annotate
@@ -34,12 +34,10 @@ plugins:
       separator: '[\s\-\.，。、]'
   - awesome-pages
 
-# 核心导航写法：不会生成 /auto 404，自动读取posts下所有md作为子菜单
+# 修正导航：只写目录名posts，插件自动读取.posts配置生成子菜单
 nav:
   - 首页: index.md
-  - 今日新闻:
-      - 新闻汇总首页: posts/index.md
-      - auto: posts
+  - 今日新闻: posts
 
 extra:
   social:
