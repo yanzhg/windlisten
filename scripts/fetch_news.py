@@ -35,9 +35,9 @@ for name, url in RSS_SOURCES:
                     "source": name,
                     "time": published.strftime("%Y-%m-%d %H:%M")
                 })
-            except Exception:
+            except:
                 continue
-    except Exception:
+    except:
         continue
 
 # 生成今日新闻
