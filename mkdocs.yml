@@ -6,22 +6,19 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
-    - navigation.expand       # 侧边栏默认展开目录
+    - navigation.expand
     - navigation.instant
     - toc.integrate
     - search.suggest
     - search.highlight
 
+# 固定导航分组，awesome-pages自动扫描posts内文件放入该分组
 nav:
   - 首页: index.md
-  - 今日新闻: posts/index.md
+  - 今日新闻:
+      - 汇总首页: posts/index.md
+      - auto: posts
 
 plugins:
   - search
-  - awesome-pages:
-      # 自动扫描posts文件夹生成侧边子导航
-      auto_nav: true
-      sort:
-        meta: date
-        reverse: true # 最新新闻放最上面
-      collapse_single_pages: false
+  - awesome-pages
