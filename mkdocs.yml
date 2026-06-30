@@ -2,18 +2,26 @@ site_name: WindListen 科技新闻
 site_description: 每日自动采集互联网科技新闻
 theme:
   name: material
+  language: zh
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.expand       # 侧边栏默认展开目录
+    - navigation.instant
     - toc.integrate
     - search.suggest
     - search.highlight
-  language: zh
 
 nav:
   - 首页: index.md
-  - 今日新闻: posts/
+  - 今日新闻: posts/index.md
 
 plugins:
   - search
-  - awesome-pages
+  - awesome-pages:
+      # 自动扫描posts文件夹生成侧边子导航
+      auto_nav: true
+      sort:
+        meta: date
+        reverse: true # 最新新闻放最上面
+      collapse_single_pages: false
