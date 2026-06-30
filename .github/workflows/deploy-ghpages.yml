@@ -1,0 +1,30 @@
+name: 构建并发布GitHub Pages
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: 安装MkDocs依赖
+        run: |
+          pip install -r requirements.txt
+
+      - name: 生成静态站点
+        run: mkdocs build
+
+      - name: 部署到gh-pages分支（GitHub Pages）
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
