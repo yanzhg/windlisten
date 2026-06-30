@@ -28,13 +28,12 @@ theme:
     - toc.follow
   sidebar_width: 25rem
 
-# 仅保留搜索，删除awesome-pages
 plugins:
   - search:
       lang: zh
-      separator: '[\s\-\.，。、]
+      separator: '[\s\-\.，。、]'
+  - macros
 
-# 固定静态导航，不会空白
 nav:
   - 首页: index.md
   - 今日新闻: posts/index.md
