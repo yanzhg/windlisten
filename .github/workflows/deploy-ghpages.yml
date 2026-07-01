@@ -2,13 +2,15 @@ name: 构建并发布GitHub Pages
 on:
   push:
     branches: [ main ]
-  workflow_dispatch # 保留手动触发入口，调试用
+     # 保留手动触发入口，调试用
+  workflow_dispatch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 赋予写入gh-pages分支权限，避免403推送失败
+      # 赋予写入gh-pages分支权限，避免403推送失败
+      contents: write
     steps:
       - uses: actions/checkout@v5
         with:
