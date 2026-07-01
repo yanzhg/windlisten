@@ -2,7 +2,7 @@ name: 构建并发布GitHub Pages
 on:
   push:
     branches: [ main ]
-     # 保留手动触发入口，调试用
+  # 保留手动触发入口，调试用
   workflow_dispatch
 
 jobs:
