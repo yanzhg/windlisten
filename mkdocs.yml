@@ -33,7 +33,8 @@ plugins:
       lang: zh
       separator: '[\s\-\.，。、0-9]'
       prebuild_index: true
-  - blog # 开启博客自动导航
+  - blog:
+      blog_dir: . # 适配你的docs/posts目录
 nav:
   - 首页: index.md
   - 新闻汇总:
