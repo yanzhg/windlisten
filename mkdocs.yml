@@ -36,7 +36,8 @@ plugins:
   - blog # 开启博客自动导航
 nav:
   - 首页: index.md
-  - 新闻汇总: posts/index.md # 只需要写目录首页，单篇新闻自动归入侧边栏
+  - 新闻汇总:
+    - posts/index.md
 
 extra:
   social:
