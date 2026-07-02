@@ -2,7 +2,7 @@ name: 每日自动采集科技新闻
 on:
   schedule:
     - cron: '0 3 * * *'
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   build:
