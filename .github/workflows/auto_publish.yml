@@ -1,22 +1,18 @@
 name: 每日自动采集科技新闻
 on:
   schedule:
-    # UTC 02:00 = 北京时间 10:00
     - cron: '0 3 * * *'
   workflow_dispatch
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    # 关键：授予仓库读写权限，否则无法push触发deploy部署
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v5
         with:
-          # 拉取完整提交历史，自动提交插件必需
           fetch-depth: 0
-          # 保留Action凭证用于推送代码
           persist-credentials: true
 
       - name: Setup Python
@@ -36,5 +32,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: Auto update news
-          # 指定推送到main分支（和deploy监听分支保持一致）
           branch: main
