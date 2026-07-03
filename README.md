@@ -3,4 +3,4 @@
 
 每日自动抓取全网科技资讯，由 GitHub Actions + MkDocs + Cloudflare 驱动
 
-URL：https://yanzhg.github.io/windlisten/
+URL：https://yanzhg.github.io/windlisten/，https://windlisten.pages.dev/
