@@ -30,15 +30,12 @@ theme:
 
 plugins:
   - search:
+      separator: '[\s\-\.，。、]'
       lang: zh
-      separator: '[\s\-\.，。、0-9]'
-      prebuild_index: true
-  - blog:
-      blog_dir: . # 适配你的docs/posts目录
+
 nav:
   - 首页: index.md
-  - 新闻汇总:
-    - posts/index.md
+  - 今日新闻: posts/index.md
 
 extra:
   social:
