@@ -33,9 +33,9 @@ plugins:
       separator: '[\s\-\.，。、]'
       lang: zh
 
-nav:
-  - 首页: index.md
-  - 今日新闻: posts/index.md
+#nav:
+#  - 首页: index.md
+#  - 今日新闻: posts/index.md
 
 extra:
   social:
